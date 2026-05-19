@@ -89,33 +89,69 @@ export default function Papers() {
     setSyncing(true);
     try {
       const settings = localStorage.getItem('flowusSettings');
-      if (!settings) {
-        alert('请先在设置页面配置 FlowUs API 令牌');
-        setSyncing(false);
-        return;
+      let token = '';
+      if (settings) {
+        try {
+          const parsed = JSON.parse(settings);
+          token = parsed.apiToken || '';
+        } catch (e) {
+          console.error('Failed to parse settings');
+        }
       }
 
-      const { apiToken } = JSON.parse(settings);
-      if (!apiToken) {
-        alert('请先在设置页面配置 FlowUs API 令牌');
-        setSyncing(false);
-        return;
+      if (!token) {
+        // Use default token if not configured
+        token = 'AWrFb1KDwmzEt6g06wWx2jcYSNL6k3y8JwJCeSLq';
       }
 
       const pageId = '9162bbd1-8518-4365-8cdd-ffd8a60a905c';
-      const sourceUrl = 'https://flowus.cn/durability/share/9162bbd1-8518-4365-8cdd-ffd8a60a905c';
       
-      const count = await syncPapersFromFlowUs(pageId, apiToken, sourceUrl);
-      
-      if (count > 0) {
-        alert(`成功同步 ${count} 篇论文到本地！`);
-        window.location.reload();
+      const response = await fetch('http://localhost:3001/api/flowus/sync-papers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ 
+          token: token,
+          pageId: pageId 
+        })
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        
+        if (result.success && result.papers) {
+          // Save the papers to storage
+          result.papers.forEach(paper => {
+            const paperData = {
+              id: paper.id,
+              title: paper.title,
+              authors: paper.authors,
+              journal: paper.journal,
+              year: paper.year,
+              doi: paper.doi,
+              url: paper.url,
+              abstract: paper.abstract,
+              keywords: paper.keywords,
+              tags: paper.tags,
+              createdAt: new Date().toISOString(),
+              updatedAt: new Date().toISOString(),
+              importedFrom: 'https://flowus.cn/durability/share/9162bbd1-8518-4365-8cdd-ffd8a60a905c'
+            };
+            paperStorage.addPaper(paperData);
+          });
+          
+          alert(`成功同步 ${result.count} 篇论文到本地！`);
+          window.location.reload();
+        } else {
+          alert('同步成功，但没有找到论文数据');
+        }
       } else {
-        alert('未找到论文数据，请检查页面内容或API权限');
+        alert('同步失败，请检查API配置和网络连接');
       }
     } catch (error) {
       console.error('Sync error:', error);
-      alert('同步失败，请检查API配置和网络连接');
+      alert('同步失败，请检查网络连接');
     } finally {
       setSyncing(false);
     }
