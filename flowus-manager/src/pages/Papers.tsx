@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { usePapers } from '../hooks/usePapers';
 import { Upload, Download, Plus, Trash2, Search, FileText, Edit, ExternalLink, RefreshCw } from 'lucide-react';
 import type { Paper } from '../types/paper';
-import { syncPapersFromFlowUs } from '../services/flowUsSync';
+import { paperStorage } from '../services/paperManager';
 
 export default function Papers() {
   const {
@@ -85,73 +85,78 @@ export default function Papers() {
     setShowExportModal(false);
   };
 
-  const handleSyncFromFlowUs = async () => {
+  const addSampleData = async () => {
     setSyncing(true);
+    
+    const samplePapers = [
+      {
+        id: 'sample-1',
+        title: 'Attention Is All You Need',
+        authors: ['Ashish Vaswani', 'Noam Shazeer', 'Niki Parmar'],
+        journal: 'NeurIPS',
+        year: 2017,
+        doi: '10.48550/arXiv.1706.03762',
+        url: 'https://arxiv.org/abs/1706.03762',
+        abstract: 'The dominant sequence transduction models are based on complex recurrent or convolutional neural networks that include an encoder and a decoder. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.',
+        keywords: ['transformer', 'attention', 'neural networks', 'NLP'],
+        tags: ['classic', 'important'],
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        importedFrom: 'Sample Data'
+      },
+      {
+        id: 'sample-2',
+        title: 'BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding',
+        authors: ['Jacob Devlin', 'Ming-Wei Chang', 'Kenton Lee', 'Kristina Toutanova'],
+        journal: 'ACL',
+        year: 2019,
+        doi: '10.18653/v1/N19-1423',
+        url: 'https://arxiv.org/abs/1810.04805',
+        abstract: 'We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models, BERT is designed to pre-train deep bidirectional representations by jointly conditioning on both left and right context in all layers.',
+        keywords: ['BERT', 'transformer', 'pre-training', 'language model'],
+        tags: ['important', 'classic'],
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        importedFrom: 'Sample Data'
+      },
+      {
+        id: 'sample-3',
+        title: 'GPT-3: Language Models are Few-Shot Learners',
+        authors: ['Tom Brown', 'Benjamin Mann', 'Nick Ryder', 'Melanie Subbiah'],
+        journal: 'NeurIPS',
+        year: 2020,
+        doi: '10.48550/arXiv.2005.14165',
+        url: 'https://arxiv.org/abs/2005.14165',
+        abstract: 'Recent work has demonstrated substantial gains on many NLP tasks and benchmarks by pre-training on a large corpus of text followed by fine-tuning on a specific task. While typically task-agnostic in architecture, this method still requires task-specific fine-tuning datasets of thousands or tens of thousands of examples.',
+        keywords: ['GPT-3', 'few-shot learning', 'language models', 'large models'],
+        tags: ['important'],
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        importedFrom: 'Sample Data'
+      }
+    ];
+    
     try {
-      const settings = localStorage.getItem('flowusSettings');
-      let token = '';
-      if (settings) {
-        try {
-          const parsed = JSON.parse(settings);
-          token = parsed.apiToken || '';
-        } catch (e) {
-          console.error('Failed to parse settings');
-        }
-      }
-
-      if (!token) {
-        // Use default token if not configured
-        token = 'AWrFb1KDwmzEt6g06wWx2jcYSNL6k3y8JwJCeSLq';
-      }
-
-      const pageId = '9162bbd1-8518-4365-8cdd-ffd8a60a905c';
+      const existingPapers = paperStorage.loadPapers();
+      const paperIds = new Set(existingPapers.map(p => p.id));
+      let added = 0;
       
-      const response = await fetch('http://localhost:3001/api/flowus/sync-papers', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ 
-          token: token,
-          pageId: pageId 
-        })
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        
-        if (result.success && result.papers) {
-          // Save the papers to storage
-          result.papers.forEach(paper => {
-            const paperData = {
-              id: paper.id,
-              title: paper.title,
-              authors: paper.authors,
-              journal: paper.journal,
-              year: paper.year,
-              doi: paper.doi,
-              url: paper.url,
-              abstract: paper.abstract,
-              keywords: paper.keywords,
-              tags: paper.tags,
-              createdAt: new Date().toISOString(),
-              updatedAt: new Date().toISOString(),
-              importedFrom: 'https://flowus.cn/durability/share/9162bbd1-8518-4365-8cdd-ffd8a60a905c'
-            };
-            paperStorage.addPaper(paperData);
-          });
-          
-          alert(`成功同步 ${result.count} 篇论文到本地！`);
-          window.location.reload();
-        } else {
-          alert('同步成功，但没有找到论文数据');
+      for (const paper of samplePapers) {
+        if (!paperIds.has(paper.id)) {
+          paperStorage.addPaper(paper);
+          added++;
         }
+      }
+      
+      if (added > 0) {
+        alert(`成功添加 ${added} 篇示例论文！`);
+        window.location.reload();
       } else {
-        alert('同步失败，请检查API配置和网络连接');
+        alert('示例论文已经存在了！');
       }
     } catch (error) {
-      console.error('Sync error:', error);
-      alert('同步失败，请检查网络连接');
+      console.error('Error adding sample data:', error);
+      alert('添加示例数据失败');
     } finally {
       setSyncing(false);
     }
@@ -186,12 +191,12 @@ export default function Papers() {
               添加论文
             </button>
             <button
-              onClick={handleSyncFromFlowUs}
+              onClick={addSampleData}
               disabled={syncing}
               className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center gap-2 transition-colors disabled:bg-gray-300"
             >
               <RefreshCw className={`w-5 h-5 ${syncing ? 'animate-spin' : ''}`} />
-              {syncing ? '同步中...' : '同步FlowUs论文'}
+              {syncing ? '添加中...' : '添加示例论文'}
             </button>
             <button
               onClick={() => setShowImportModal(true)}

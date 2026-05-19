@@ -55,6 +55,21 @@ export default function Settings() {
     setTestMessage('');
 
     try {
+      // First test if server is running
+      console.log('Testing server connection...');
+      const healthCheck = await fetch('http://localhost:3001/health', {
+        method: 'GET'
+      });
+      
+      if (!healthCheck.ok) {
+        throw new Error('Server not responding');
+      }
+      
+      const healthData = await healthCheck.json();
+      console.log('Health check:', healthData);
+      
+      // Now test the API
+      console.log('Testing FlowUs API...');
       const response = await fetch('http://localhost:3001/api/flowus/test', {
         method: 'GET',
         headers: {
@@ -64,16 +79,20 @@ export default function Settings() {
       });
 
       if (response.ok) {
+        const result = await response.json();
+        console.log('API response:', result);
+        
         setTestResult('success');
-        setTestMessage('成功连接到 FlowUs API');
+        setTestMessage(result.message || '成功连接到 FlowUs API');
       } else {
         const error = await response.json();
         setTestResult('error');
         setTestMessage(error.error || '连接失败，请检查 API 令牌');
       }
     } catch (error) {
+      console.error('Connection error:', error);
       setTestResult('error');
-      setTestMessage('无法连接到服务器，请确保后端服务正在运行');
+      setTestMessage('无法连接到服务器，请确保后端服务正在运行（端口 3001）');
     } finally {
       setTesting(false);
     }
