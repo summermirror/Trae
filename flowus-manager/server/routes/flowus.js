@@ -2,86 +2,189 @@ import express from 'express';
 
 const router = express.Router();
 
-// Mock data for demonstration
-const mockArticles = [
-  {
-    id: '1',
-    title: 'React Hooks 最佳实践指南',
-    type: 'document',
-    content: '# React Hooks 最佳实践指南\n\n在这篇文章中，我们将探讨如何正确使用 React Hooks...',
-    tags: ['React', '前端', 'Hooks'],
-    views: 1256,
-    likes: 89,
-    comments: 23,
-    shares: 15,
-    createdAt: '2024-01-15T10:30:00Z',
-    updatedAt: '2024-01-20T14:45:00Z',
-  },
-  {
-    id: '2',
-    title: 'TypeScript 类型系统详解',
-    type: 'document',
-    content: '# TypeScript 类型系统详解\n\nTypeScript 的类型系统是其最强大的特性之一...',
-    tags: ['TypeScript', '前端', '类型系统'],
-    views: 2341,
-    likes: 156,
-    comments: 45,
-    shares: 32,
-    createdAt: '2024-01-10T08:15:00Z',
-    updatedAt: '2024-01-18T16:20:00Z',
-  },
-];
+const FLOWUS_API_BASE = 'https://api.flowus.cn/v1';
 
-router.get('/pages', (req, res) => {
-  res.json([
-    {
-      id: 'folder-1',
-      title: '技术文章',
-      type: 'folder',
-      createdAt: '2023-12-01T00:00:00Z',
-      updatedAt: '2024-01-20T00:00:00Z',
-      children: mockArticles,
-    },
-  ]);
-});
-
-router.get('/articles', (req, res) => {
-  res.json(mockArticles);
-});
-
-router.get('/analytics', (req, res) => {
-  const totalViews = mockArticles.reduce((sum, a) => sum + a.views, 0);
-  const totalLikes = mockArticles.reduce((sum, a) => sum + a.likes, 0);
-  const totalComments = mockArticles.reduce((sum, a) => sum + (a.comments || 0), 0);
-  const totalShares = mockArticles.reduce((sum, a) => sum + (a.shares || 0), 0);
-  
-  const viewTrends = [];
-  for (let i = 29; i >= 0; i--) {
-    const date = new Date();
-    date.setDate(date.getDate() - i);
-    viewTrends.push({
-      date: date.toISOString().split('T')[0],
-      value: Math.floor(Math.random() * 100) + 50,
-    });
+router.get('/test', async (req, res) => {
+  const { token } = req.headers;
+  if (!token) {
+    return res.status(400).json({ error: 'Token is required' });
   }
-  
-  res.json({
-    totalViews,
-    totalLikes,
-    totalComments,
-    totalShares,
-    topPages: [...mockArticles].sort((a, b) => b.views - a.views).slice(0, 10),
-    viewTrends,
-  });
+
+  try {
+    const response = await fetch(`${FLOWUS_API_BASE}/spaces`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      return res.status(response.status).json({ 
+        error: 'Invalid token or API error',
+        status: response.status 
+      });
+    }
+
+    const data = await response.json();
+    res.json({ success: true, data });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to connect to FlowUs API' });
+  }
 });
 
-router.get('/pages/:id', (req, res) => {
+router.get('/pages', async (req, res) => {
+  const { token } = req.headers;
+  
+  if (!token) {
+    return res.status(400).json({ error: 'Token is required' });
+  }
+
+  try {
+    const response = await fetch(`${FLOWUS_API_BASE}/spaces`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      return res.status(response.status).json({ 
+        error: 'Failed to fetch pages',
+        status: response.status 
+      });
+    }
+
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    console.error('FlowUs API error:', error);
+    res.status(500).json({ error: 'Failed to fetch from FlowUs API' });
+  }
+});
+
+router.get('/pages/:id', async (req, res) => {
+  const { token } = req.headers;
   const { id } = req.params;
-  const page = mockArticles.find(p => p.id === id);
-  if (page) {
-    res.json(page);
-  } else {
-    res.status(404).json({ error: 'Page not found' });
+  
+  if (!token) {
+    return res.status(400).json({ error: 'Token is required' });
+  }
+
+  try {
+    const response = await fetch(`${FLOWUS_API_BASE}/pages/${id}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      return res.status(response.status).json({ 
+        error: 'Page not found',
+        status: response.status 
+      });
+    }
+
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    console.error('FlowUs API error:', error);
+    res.status(500).json({ error: 'Failed to fetch page from FlowUs API' });
+  }
+});
+
+router.get('/articles', async (req, res) => {
+  const { token } = req.headers;
+  
+  if (!token) {
+    return res.status(400).json({ error: 'Token is required' });
+  }
+
+  try {
+    const response = await fetch(`${FLOWUS_API_BASE}/spaces`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      return res.status(response.status).json({ 
+        error: 'Failed to fetch articles',
+        status: response.status 
+      });
+    }
+
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    console.error('FlowUs API error:', error);
+    res.status(500).json({ error: 'Failed to fetch from FlowUs API' });
+  }
+});
+
+router.get('/analytics', async (req, res) => {
+  const { token } = req.headers;
+  
+  if (!token) {
+    return res.status(400).json({ error: 'Token is required' });
+  }
+
+  try {
+    const response = await fetch(`${FLOWUS_API_BASE}/analytics`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      return res.status(response.status).json({ 
+        error: 'Failed to fetch analytics',
+        status: response.status 
+      });
+    }
+
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    console.error('FlowUs API error:', error);
+    res.status(500).json({ error: 'Failed to fetch from FlowUs API' });
+  }
+});
+
+router.post('/sync', async (req, res) => {
+  const { token } = req.body;
+  
+  if (!token) {
+    return res.status(400).json({ error: 'Token is required' });
+  }
+
+  try {
+    const response = await fetch(`${FLOWUS_API_BASE}/spaces`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      return res.status(response.status).json({ 
+        error: 'Sync failed',
+        status: response.status 
+      });
+    }
+
+    const data = await response.json();
+    res.json({ 
+      success: true, 
+      message: 'Data synchronized successfully',
+      data,
+      syncedAt: new Date().toISOString()
+    });
+  } catch (error) {
+    console.error('FlowUs sync error:', error);
+    res.status(500).json({ error: 'Failed to sync with FlowUs API' });
   }
 });
 
