@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import Content from './pages/Content';
 import Analytics from './pages/Analytics';
 import Export from './pages/Export';
+import Papers from './pages/Papers';
 import Settings from './pages/Settings';
 import './index.css';
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="content" element={<Content />} />
             <Route path="analytics" element={<Analytics />} />
             <Route path="export" element={<Export />} />
+            <Route path="papers" element={<Papers />} />
             <Route path="settings" element={<Settings />} />
           </Route>
         </Routes>

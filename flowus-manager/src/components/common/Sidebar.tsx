@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, FileText, BarChart3, Download, Settings } from 'lucide-react';
+import { LayoutDashboard, FileText, BarChart3, Download, Settings, BookOpen } from 'lucide-react';
 
 export default function Sidebar() {
   const navItems = [
     { to: '/', icon: LayoutDashboard, label: '仪表盘' },
     { to: '/content', icon: FileText, label: '内容管理' },
+    { to: '/papers', icon: BookOpen, label: '论文管理' },
     { to: '/analytics', icon: BarChart3, label: '数据分析' },
     { to: '/export', icon: Download, label: '导出中心' },
     { to: '/settings', icon: Settings, label: '设置' },
