@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { usePapers } from '../hooks/usePapers';
-import { Upload, Download, Plus, Trash2, Search, FileText, Edit, ExternalLink } from 'lucide-react';
+import { Upload, Download, Plus, Trash2, Search, FileText, Edit, ExternalLink, RefreshCw } from 'lucide-react';
 import type { Paper } from '../types/paper';
+import { syncPapersFromFlowUs } from '../services/flowUsSync';
 
 export default function Papers() {
   const {
@@ -28,6 +29,7 @@ export default function Papers() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [selectedPaper, setSelectedPaper] = useState<Paper | null>(null);
   const [importSource, setImportSource] = useState('');
+  const [syncing, setSyncing] = useState(false);
 
   const filteredPapers = papers.filter(paper =>
     paper.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -83,6 +85,42 @@ export default function Papers() {
     setShowExportModal(false);
   };
 
+  const handleSyncFromFlowUs = async () => {
+    setSyncing(true);
+    try {
+      const settings = localStorage.getItem('flowusSettings');
+      if (!settings) {
+        alert('请先在设置页面配置 FlowUs API 令牌');
+        setSyncing(false);
+        return;
+      }
+
+      const { apiToken } = JSON.parse(settings);
+      if (!apiToken) {
+        alert('请先在设置页面配置 FlowUs API 令牌');
+        setSyncing(false);
+        return;
+      }
+
+      const pageId = '9162bbd1-8518-4365-8cdd-ffd8a60a905c';
+      const sourceUrl = 'https://flowus.cn/durability/share/9162bbd1-8518-4365-8cdd-ffd8a60a905c';
+      
+      const count = await syncPapersFromFlowUs(pageId, apiToken, sourceUrl);
+      
+      if (count > 0) {
+        alert(`成功同步 ${count} 篇论文到本地！`);
+        window.location.reload();
+      } else {
+        alert('未找到论文数据，请检查页面内容或API权限');
+      }
+    } catch (error) {
+      console.error('Sync error:', error);
+      alert('同步失败，请检查API配置和网络连接');
+    } finally {
+      setSyncing(false);
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -112,8 +150,16 @@ export default function Papers() {
               添加论文
             </button>
             <button
+              onClick={handleSyncFromFlowUs}
+              disabled={syncing}
+              className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center gap-2 transition-colors disabled:bg-gray-300"
+            >
+              <RefreshCw className={`w-5 h-5 ${syncing ? 'animate-spin' : ''}`} />
+              {syncing ? '同步中...' : '同步FlowUs论文'}
+            </button>
+            <button
               onClick={() => setShowImportModal(true)}
-              className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center gap-2 transition-colors"
+              className="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 flex items-center gap-2 transition-colors"
             >
               <Upload className="w-5 h-5" />
               导入
