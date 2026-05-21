@@ -1,0 +1,428 @@
+{
+  "papers": [
+    {
+      "id": "e131af40-5d43-42ba-a373-e3d5da9bcd40",
+      "title": "Comparative analysis of microdamage-affected chloride transport in concrete under static and dynamic hydraulic pressure",
+      "created": "2024-10-25T08:39:29.582Z",
+      "edited": "2026-05-03T15:20:00.504Z",
+      "type": "child_page"
+    },
+    {
+      "id": "4d266fc6-9d64-4c5a-8cf0-4b99d4cdd03c",
+      "title": "Influence of hydraulic pressure on pore structure evolution and chloride transport in concrete",
+      "created": "2024-10-25T08:39:29.582Z",
+      "edited": "2026-05-03T15:20:00.500Z",
+      "type": "child_page"
+    },
+    {
+      "id": "a9b32fb6-294a-4c11-a2f5-8a1eb99c6b10",
+      "title": "Experimental study on the flexural fatigue performance of slag/fly ash geopolymer concrete reinforced with modified basalt and PVA hybrid fibers",
+      "created": "2024-10-25T08:39:29.582Z",
+      "edited": "2026-05-03T18:05:20.547Z",
+      "type": "child_page"
+    },
+    {
+      "id": "ee8a5028-0f2b-4b33-b0f0-adafd6fe50f7",
+      "title": "Influence of initial saturation degree on chloride transport in concrete under hydraulic pressure",
+      "created": "2024-10-25T08:39:29.582Z",
+      "edited": "2026-05-03T15:05:17.628Z",
+      "type": "child_page"
+    },
+    {
+      "id": "636f9d86-401e-40b3-9ec8-3918ff86026e",
+      "title": "Performance characteristics of micro fiber-reinforced ambient cured one-part geopolymer mortar for repairing",
+      "created": "2024-10-25T08:39:29.855Z",
+      "edited": "2025-12-18T14:25:14.232Z",
+      "type": "child_page"
+    },
+    {
+      "id": "8b318747-55a9-495d-9c1c-7f958674c220",
+      "title": "Effect of environmental temperature on efficiency of electrochemical chloride removal from concrete",
+      "created": "2024-10-29T14:28:44.434Z",
+      "edited": "2025-07-20T05:25:13.596Z",
+      "type": "child_page"
+    },
+    {
+      "id": "fcdbc316-d258-4d04-b7dc-1d991f93bf94",
+      "title": "Optimisation of sacrificial anode cathodic protection system in chloride-contaminated reinforced concrete structure",
+      "created": "2024-10-29T14:07:17.965Z",
+      "edited": "2025-07-20T05:25:16.754Z",
+      "type": "child_page"
+    },
+    {
+      "id": "6004d6f1-cc68-4528-ae29-6f6c2666758a",
+      "title": "Modelling the corrosion mechanism of steel bars in chloride-contaminated concrete with transverse cracks",
+      "created": "2024-10-29T11:42:55.951Z",
+      "edited": "2025-07-20T05:25:18.447Z",
+      "type": "child_page"
+    },
+    {
+      "id": "7f383b39-ec1d-445c-89c1-93fa8c239a04",
+      "title": "Synthesis and reaction mechanism of geopolymer gels with increasing calcium content: from experiments to molecular dynamics simulation",
+      "created": "2024-10-29T11:37:31.675Z",
+      "edited": "2025-07-20T05:25:13.535Z",
+      "type": "child_page"
+    },
+    {
+      "id": "ee2bc83a-66bb-4401-8d5c-9cbe72a996b8",
+      "title": "Spatiotemporal interpolation of surface chloride content for marine RC structures based on non-uniform spatiotemporal Kriging interpolation method",
+      "created": "2024-10-29T11:41:10.967Z",
+      "edited": "2025-07-20T05:24:57.109Z",
+      "type": "child_page"
+    },
+    {
+      "id": "9518fb94-9265-4de2-865a-9d9c9b46eaa9",
+      "title": "基于延寿-减碳目标的混凝土结构耐久性控制策略研究",
+      "created": "2024-10-29T11:11:53.793Z",
+      "edited": "2026-05-03T15:20:00.507Z",
+      "type": "child_page"
+    },
+    {
+      "id": "5ac267e0-c758-4e00-b8ed-aa7bcb9c3d84",
+      "title": "埋深对大直径竹缠绕复合管涵受力性能影响实测与分析",
+      "created": "2024-11-01T11:54:42.061Z",
+      "edited": "2026-05-03T15:20:00.556Z",
+      "type": "child_page"
+    },
+    {
+      "id": "4f2df1bb-a269-42dc-944e-437d87f65448",
+      "title": "Developing an indexing methodology for estimating the reactivity of slag from different sources use in alkali-activated materials",
+      "created": "2024-11-11T06:31:49.864Z",
+      "edited": "2026-05-03T15:06:11.382Z",
+      "type": "child_page"
+    },
+    {
+      "id": "7e32afaf-bba3-4993-adab-2ebc5f6edad9",
+      "title": "A stacking ensemble model for predicting the flexural fatigue life of fiber-reinforced concrete",
+      "created": "2024-10-29T11:18:13.681Z",
+      "edited": "2026-05-03T15:20:00.473Z",
+      "type": "child_page"
+    },
+    {
+      "id": "6903f0db-bbe1-4098-a86d-7374d6cdccd7",
+      "title": "A hybrid model based on LSTM-CNN combined with attention mechanism for MPC concrete strength prediction",
+      "created": "2024-10-29T11:21:54.606Z",
+      "edited": "2026-05-03T15:20:00.509Z",
+      "type": "child_page"
+    },
+    {
+      "id": "f7d405bb-db70-4b28-8582-638ea09da76e",
+      "title": "树脂基改性玄武岩纤维增韧海水–海砂磷酸镁水泥砂浆性能",
+      "created": "2024-10-29T11:23:31.155Z",
+      "edited": "2026-05-03T15:20:00.505Z",
+      "type": "child_page"
+    },
+    {
+      "id": "f1f1db13-fd3d-4b04-adc5-2c309dc77347",
+      "title": "尺寸效应对基于Wenner技术测量混凝土电阻率的影响",
+      "created": "2024-10-29T11:25:03.267Z",
+      "edited": "2026-05-03T15:20:00.505Z",
+      "type": "child_page"
+    },
+    {
+      "id": "da012104-bd45-4c33-8cb1-709a9dc6838d",
+      "title": "基于环境作用效应的海洋混凝土结构暴露区域划分方法",
+      "created": "2024-10-29T11:26:24.906Z",
+      "edited": "2026-05-13T19:05:14.315Z",
+      "type": "child_page"
+    },
+    {
+      "id": "33d30a8f-908e-44e1-9a6d-0113cc655933",
+      "title": "Data-driven corrosion failure probabilistic assessment model for reinforced concrete structures",
+      "created": "2024-10-30T14:52:48.380Z",
+      "edited": "2026-05-03T15:20:00.513Z",
+      "type": "child_page"
+    },
+    {
+      "id": "cedc459c-d6c5-4004-8e3c-d1955af1c4c0",
+      "title": "A holistic approach to evaluating techniques for monitoring coated steel degradation: Integrating techniques and applications",
+      "created": "2024-11-01T11:32:39.352Z",
+      "edited": "2026-05-03T15:35:34.183Z",
+      "type": "child_page"
+    },
+    {
+      "id": "fbd66770-74f9-4b74-a5b0-1e66667fc52d",
+      "title": "Service life evaluation of marine concrete structures considering spatial and temporal characteristics: A framework based on multi training-MCS-NLS",
+      "created": "2024-11-01T11:42:09.003Z",
+      "edited": "2026-05-03T15:20:00.507Z",
+      "type": "child_page"
+    },
+    {
+      "id": "e9dfaa94-3d5f-42d5-bf4d-7080c3d8299b",
+      "title": "Influence of erosion damage on the spatiotemporal deterioration of marine RC structures",
+      "created": "2024-11-01T12:35:11.805Z",
+      "edited": "2026-05-03T15:20:00.495Z",
+      "type": "child_page"
+    },
+    {
+      "id": "c14d62d4-0344-459f-a9e2-e1d5ab38ebf4",
+      "title": "Evaluation on reactivity of fly ash from different sources in alkali activated system-progressing environmentally construction through waste utilization",
+      "created": "2024-11-01T12:43:17.529Z",
+      "edited": "2026-05-03T15:20:00.473Z",
+      "type": "child_page"
+    },
+    {
+      "id": "3f8d6a1c-6c3c-4780-9f1d-743581a9fc7b",
+      "title": "Experiment and simulation on the coupled effects of calcium leaching and chloride transport in concrete under hydraulic pressure",
+      "created": "2024-11-02T08:43:31.638Z",
+      "edited": "2026-05-03T15:20:00.521Z",
+      "type": "child_page"
+    },
+    {
+      "id": "179a1f05-76d7-4eed-b1be-d55142456cc1",
+      "title": "An intelligent hybrid machine learning framework for compressive strength prediction of alkali-activated binders based on fly ash characteristics",
+      "created": "2024-11-02T08:45:20.170Z",
+      "edited": "2026-05-03T15:40:00.343Z",
+      "type": "child_page"
+    },
+    {
+      "id": "efa16d87-1bec-4dee-a5ac-e16ae944e67e",
+      "title": "Experimental study on circumferential compression behavior of large-diameter bamboo winding composite pipe (BWCP)",
+      "created": "2024-11-02T08:49:16.831Z",
+      "edited": "2026-05-03T15:40:00.350Z",
+      "type": "child_page"
+    },
+    {
+      "id": "58b6d209-8a2c-4d86-9de8-ff1f59b1ba19",
+      "title": "荷载与侵蚀维度对混凝土内氯离子传输规律的影响",
+      "created": "2024-11-06T03:04:53.026Z",
+      "edited": "2025-07-20T05:25:01.524Z",
+      "type": "child_page"
+    },
+    {
+      "id": "9d8ccc55-8296-43bc-8f5c-28710a7481c3",
+      "title": "分层回填施工过程竹缠绕复合管涵力学性能研究",
+      "created": "2024-11-06T03:54:57.167Z",
+      "edited": "2025-07-20T05:25:12.927Z",
+      "type": "child_page"
+    },
+    {
+      "id": "4cc0d016-d50a-4a4e-a20b-47084feb71ba",
+      "title": "混凝土结构全寿命减碳技术研究进展",
+      "created": "2024-11-06T04:04:23.311Z",
+      "edited": "2024-12-03T18:36:34.558Z",
+      "type": "child_page"
+    },
+    {
+      "id": "a36a51b0-7d7e-411f-80ea-357c56473291",
+      "title": "基于电磁感应原理的钢筋钢纤维混凝土无损检测方法研究",
+      "created": "2024-11-06T05:23:21.948Z",
+      "edited": "2025-07-20T05:25:12.264Z",
+      "type": "child_page"
+    },
+    {
+      "id": "903adccc-11ca-4074-839f-70574948e3dc",
+      "title": "基于孔隙形态学特征的水泥浆体渗流指数",
+      "created": "2024-11-06T05:25:59.338Z",
+      "edited": "2025-07-20T05:25:02.060Z",
+      "type": "child_page"
+    },
+    {
+      "id": "26f0aeab-0b6e-49b7-a2b5-aa248341360c",
+      "title": "冲蚀速率对混凝土表面损伤的影响",
+      "created": "2024-11-06T06:53:44.045Z",
+      "edited": "2025-07-20T05:25:12.352Z",
+      "type": "child_page"
+    },
+    {
+      "id": "450080bf-4d6b-4680-be29-4fa30ee6f94a",
+      "title": "基于成本-碳排放的混凝土结构多目标优化方法",
+      "created": "2024-11-06T06:57:19.059Z",
+      "edited": "2025-07-20T05:25:17.884Z",
+      "type": "child_page"
+    },
+    {
+      "id": "d7673f47-380d-4908-9c55-0c205c7e97dd",
+      "title": "基于复合材料理论的混凝土内多离子扩散模型",
+      "created": "2024-11-06T06:59:23.264Z",
+      "edited": "2024-12-03T20:02:50.768Z",
+      "type": "child_page"
+    },
+    {
+      "id": "6f3c3db0-ca7f-44b5-a578-eaae75c5c7ac",
+      "title": "氯离子浓度空间分布下的混凝土内部钢筋非均匀腐蚀规律",
+      "created": "2024-11-06T07:04:04.514Z",
+      "edited": "2024-12-03T20:06:02.666Z",
+      "type": "child_page"
+    },
+    {
+      "id": "33844ced-d003-4d58-b5dc-907743ade605",
+      "title": "修复混凝土内部钢筋纵向腐蚀行为研究",
+      "created": "2024-11-06T07:09:59.671Z",
+      "edited": "2024-12-03T20:10:24.811Z",
+      "type": "child_page"
+    },
+    {
+      "id": "af16a669-bf0f-447a-9335-be0ef224786a",
+      "title": "钢筋混凝土结构多尺度建模界面连接方法研究",
+      "created": "2024-11-06T07:13:09.086Z",
+      "edited": "2024-12-03T20:13:11.915Z",
+      "type": "child_page"
+    },
+    {
+      "id": "3293ed81-7d37-491a-9ac8-749bb97666f7",
+      "title": "氯盐环境下钢筋锈蚀损伤混凝土应力-应变本构模型",
+      "created": "2024-11-06T07:21:34.488Z",
+      "edited": "2024-12-03T20:13:21.922Z",
+      "type": "child_page"
+    },
+    {
+      "id": "8a95ac98-c012-49d8-8ab-c20575ca750d",
+      "title": "电化学修复对混凝土微观结构影响的研究综述",
+      "created": "2024-11-06T07:30:39.042Z",
+      "edited": "2025-07-20T05:24:56.055Z",
+      "type": "child_page"
+    },
+    {
+      "id": "7be0a962-af6b-460b-9ea0-ff6a44332fca",
+      "title": "环氧钢筋的耐腐蚀性能研究",
+      "created": "2024-11-06T07:37:41.776Z",
+      "edited": "2025-07-20T05:24:55.590Z",
+      "type": "child_page"
+    },
+    {
+      "id": "9c2ff4ab-890a-4858-8324-03e12553af68",
+      "title": "基于3D扫描技术的现场混凝土三维粗糙度检测方法",
+      "created": "2024-11-06T07:46:31.640Z",
+      "edited": "2025-07-20T05:25:06.685Z",
+      "type": "child_page"
+    },
+    {
+      "id": "b364f347-209d-4c98-bd36-52bcee7c8275",
+      "title": "双向电迁移后混凝土内钢筋氢含量变化及影响",
+      "created": "2024-11-06T09:48:07.369Z",
+      "edited": "2025-07-20T05:25:12.436Z",
+      "type": "child_page"
+    },
+    {
+      "id": "884d4178-6495-4e07-8c48-b2dc06922c68",
+      "title": "混凝土结构锈裂形态试验研究及数值模拟",
+      "created": "2024-11-06T09:59:38.932Z",
+      "edited": "2025-07-20T05:25:01.578Z",
+      "type": "child_page"
+    },
+    {
+      "id": "7009f5f3-df43-4a42-8b7c-c64cb29db523",
+      "title": "基于双向电迁移的开裂混凝土除氯阻锈效果",
+      "created": "2024-11-06T10:05:04.163Z",
+      "edited": "2025-07-20T05:24:55.788Z",
+      "type": "child_page"
+    },
+    {
+      "id": "4de34cb7-bd13-47eb-83a6-3761a351367a",
+      "title": "电化学修复过程混凝土内环境对钢筋表面析氢影响的实验研究",
+      "created": "2024-11-06T10:09:17.100Z",
+      "edited": "2025-07-20T05:25:12.371Z",
+      "type": "child_page"
+    },
+    {
+      "id": "3221be7d-29df-4069-832e-97303dd0a047",
+      "title": "孔隙结构演变对混凝土电化学修复过程影响数值模拟研究",
+      "created": "2024-11-06T10:14:50.493Z",
+      "edited": "2025-07-20T05:24:55.616Z",
+      "type": "child_page"
+    },
+    {
+      "id": "a0639a7f-83ff-48a7-a5b3-957b87672376",
+      "title": "电化学修复过程氢致钢筋塑性降低的影响与控制试验研究",
+      "created": "2024-11-06T10:21:20.768Z",
+      "edited": "2025-07-20T05:25:01.238Z",
+      "type": "child_page"
+    },
+    {
+      "id": "beaa8cf9-fa01-4d1c-b940-b0a8ba103ae6",
+      "title": "氯盐环境下混凝土内钢筋锈蚀模拟研究",
+      "created": "2024-11-06T10:25:54.861Z",
+      "edited": "2024-11-06T10:27:53.345Z",
+      "type": "child_page"
+    },
+    {
+      "id": "ce0164fc-a349-44fb-aa4a-08f3226d6685",
+      "title": "电化学修复对钢筋混凝土结构服役性能的作用效应",
+      "created": "2024-11-06T10:28:24.218Z",
+      "edited": "2025-07-20T05:24:55.603Z",
+      "type": "child_page"
+    },
+    {
+      "id": "5919856c-7030-444e-aff1-464f8150ce40",
+      "title": "基于DIS算子的混凝土骨料二维数字图像识别方法",
+      "created": "2024-11-06T11:40:38.152Z",
+      "edited": "2025-07-20T05:24:55.729Z",
+      "type": "child_page"
+    },
+    {
+      "id": "8bae979e-ea25-49ef-9a96-07cbea7830b9",
+      "title": "基于第一性原理的氯盐环境下混凝土中钢筋锈蚀特性分析",
+      "created": "2024-11-06T11:44:45.734Z",
+      "edited": "2025-07-20T05:25:12.318Z",
+      "type": "child_page"
+    },
+    {
+      "id": "de67dd76-85da-44f2-a86b-4b32bf645d53",
+      "title": "氯盐侵蚀钢筋混凝土锈胀开裂监测及预测方法",
+      "created": "2024-11-06T11:52:03.998Z",
+      "edited": "2025-07-20T05:25:01.955Z",
+      "type": "child_page"
+    },
+    {
+      "id": "2c199536-561c-4e37-addc-384ba0868699",
+      "title": "氯盐侵蚀钢筋混凝土锈胀模型的动态修正",
+      "created": "2024-11-06T11:56:14.334Z",
+      "edited": "2025-07-20T05:25:01.260Z",
+      "type": "child_page"
+    },
+    {
+      "id": "2c91fdd4-0e65-4e70-8128-40f09aa316f3",
+      "title": "电化学修复对钢筋混凝土结构服役性能的作用效应",
+      "created": "2024-11-06T12:01:27.880Z",
+      "edited": "2025-07-20T05:25:01.446Z",
+      "type": "child_page"
+    },
+    {
+      "id": "0a15dec8-ca13-48b3-9e2b-13e75904ba85",
+      "title": "海砂混凝土建筑的耐久性提升技术及应用研究",
+      "created": "2024-11-06T12:05:06.786Z",
+      "edited": "2025-07-20T05:25:17.607Z",
+      "type": "child_page"
+    },
+    {
+      "id": "81eb3876-ef21-4d8d-b6b7-da14510139d6",
+      "title": "双向电渗对钢筋混凝土的修复效果实验——保护层表面强度变化规律",
+      "created": "2024-11-06T12:10:58.807Z",
+      "edited": "2025-07-20T05:24:55.733Z",
+      "type": "child_page"
+    },
+    {
+      "id": "5f12ed89-61f6-49d4-ab6e-e1364cb3fa18",
+      "title": "预应力混凝土离心桩劣化后抗拉性能试验研究",
+      "created": "2024-11-06T12:13:27.375Z",
+      "edited": "2025-07-20T05:25:06.676Z",
+      "type": "child_page"
+    },
+    {
+      "id": "730a94dd-328d-4d0a-bb1d-d8c058ad5873",
+      "title": "混凝土冻融环境区划与抗冻性寿命预测",
+      "created": "2024-11-06T12:18:42.314Z",
+      "edited": "2025-07-20T05:25:12.334Z",
+      "type": "child_page"
+    },
+    {
+      "id": "42bc9cd2-6033-4420-b923-ef074d1124fc",
+      "title": "结构裂缝的分布式光纤监测方法及试验研究",
+      "created": "2024-11-06T12:21:53.091Z",
+      "edited": "2025-07-20T05:25:01.281Z",
+      "type": "child_page"
+    },
+    {
+      "id": "f6e5be7a-266e-4c21-adae-6830dd398e6f",
+      "title": "多重环境时间相似理论及其应用",
+      "created": "2024-11-06T12:26:20.367Z",
+      "edited": "2025-07-20T05:25:02.118Z",
+      "type": "child_page"
+    }
+  ],
+  "totalCount": 56,
+  "pageId": "9162bbd1-8518-4365-8cdd-ffd8a60a905c",
+  "retrievedAt": "2026-05-19T14:52:00.000Z",
+  "source": "FlowUs API v1"
+}
